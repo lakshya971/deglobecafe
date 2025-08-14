@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="h-23 flex justify-center items-center w-full">
-      <div className="bg-[#161916] text-white flex justify-around items-center px-8 py-4 w-[95vw]">
+    <header className="h-24 mb-8 flex justify-center items-center w-full">
+      <div className="bg-[#161916] gap-32 text-white flex justify-around items-center px-8 py-4 w-[95vw]">
         {/* Logo/Brand */}
         <div className="flex justify-center items-center">
           <NavLink to="/" className="text-4xl font-semibold text-center">De Globe Cafe</NavLink>
@@ -12,13 +12,13 @@ const Header = () => {
 
         {/* Navigation Menu */}
         <nav>
-          <ul className="flex gap-16">
+          <ul className="flex text-md gap-6">
             <NavLink
               to="/"
               className={({ isActive }) =>
                 isActive
-                  ? "text-[#ddbda1] border-b-2 border-[#ddbda1] pb-1"
-                  : "hover:text-[#ddbda1]"
+                  ? "text-[#ddbda1] border-b-2 px-5 border-[#ddbda1] pb-1"
+                  : "hover:text-[#ddbda1] px-5 hover:border-b-2 border-[#ddbda1]"
               }
             >
               Home
@@ -27,8 +27,8 @@ const Header = () => {
               to="/About"
               className={({ isActive }) =>
                 isActive
-                  ? "text-[#ddbda1] border-b-2 border-[#ddbda1] pb-1"
-                  : "hover:text-[#ddbda1]"
+                  ? "text-[#ddbda1] border-b-2 px-5 border-[#ddbda1] pb-1"
+                  : "hover:text-[#ddbda1] px-5 hover:border-b-2 border-[#ddbda1]"
               }
             >
               About
@@ -37,8 +37,8 @@ const Header = () => {
               to="/Contact"
               className={({ isActive }) =>
                 isActive
-                  ? "text-[#ddbda1] border-b-2 border-[#ddbda1] pb-1"
-                  : "hover:text-[#ddbda1]"
+                  ? "text-[#ddbda1] border-b-2 px-5 border-[#ddbda1] pb-1"
+                  : "hover:text-[#ddbda1] px-5 hover:border-b-2 border-[#ddbda1]"
               }
             >
               Contact
@@ -47,8 +47,8 @@ const Header = () => {
               to="/Menu"
               className={({ isActive }) =>
                 isActive
-                  ? "text-[#ddbda1] border-b-2 border-[#ddbda1] pb-1"
-                  : "hover:text-[#ddbda1]"
+                  ? "text-[#ddbda1] border-b-2 px-5 border-[#ddbda1] pb-1"
+                  : "hover:text-[#ddbda1] px-5 hover:border-b-2 border-[#ddbda1]"
               }
             >
               Menu

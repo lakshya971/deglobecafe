@@ -50,7 +50,7 @@ const router = createBrowserRouter(
 
 const App = () => {
   return (
-    <div className='bg-[#161916] min-h-screen text-white font-poppins'>
+    <div className='bg-[#161916] min-h-screen font-poppins'>
       <RouterProvider router={router} />
     </div>
   )
