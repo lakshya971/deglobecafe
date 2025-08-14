@@ -30,7 +30,7 @@ const ScrollAnimatedImage = () => {
       animate={{ opacity: 1, x: 0, y: 0 }}
       // The transition controls the feel of the load-in animation.
       transition={{ duration: 2, ease: [0.6, 0.05, 0.01, 0.9] }}
-      className=" bottom-8 right-8 z-10"
+      className=" bottom-8 right-8 z-10 overflow-hidden"
     >
       <img 
         src="/Coffee_cup.png" 
