@@ -7,7 +7,9 @@ const Header = () => {
       <div className="bg-[#161916] gap-32 text-white flex justify-around items-center px-8 py-4 w-[95vw]">
         {/* Logo/Brand */}
         <div className="flex justify-center items-center">
-          <NavLink to="/" className="text-4xl font-semibold text-center">De Globe Cafe</NavLink>
+          <NavLink to="/" className="text-4xl font-semibold text-center">
+            De Globe Cafe
+          </NavLink>
         </div>
 
         {/* Navigation Menu */}
@@ -59,7 +61,9 @@ const Header = () => {
         {/* Call to Action Button */}
         <div>
           <button className="bg-[#ddbda1] font-semibold text-black px-20 py-2 hover:bg-orange-500 hover:text-white duration-300 transition-colors">
-            Visit us today
+            <a href="https://www.google.com/search?cs=1&output=search&kgmid=/g/11l4cck0nk&q=De+Globe+Cafe&shndl=30&shem=lcuae,uaasie&kgs=9d31530bf20705f3">
+              Visit Us Today
+            </a>
           </button>
         </div>
       </div>

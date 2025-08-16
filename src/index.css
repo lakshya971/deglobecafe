@@ -1,2 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Satisfy&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap');
 @import "tailwindcss";
+
+.hexagon {
+  background: #151616;
+  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+  mask-image: radial-gradient(circle 175px, black 98%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle 175px, black 98%, transparent 100%);
+}
+
+
+.hexagon:hover {
+  border-radius: 40px;
+  transform: scale(1.08);
+  transition: all 0.6s ease;
+  background-color: black;
+  opacity: 0.6;
+}
