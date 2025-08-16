@@ -15,7 +15,7 @@ const ScrollAnimatedImage = () => {
   const y = useTransform(scrollYProgress, [0, 1], [0, -200]);
   
   // 2. The 'scale' will go from 1 to 1.8 (making it larger on the z-axis).
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.8]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 2.1]);
 
   return (
     // This motion.div is positioned relative to the viewport.
