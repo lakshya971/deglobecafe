@@ -73,7 +73,7 @@ const Home = () => {
     <main className="flex flex-col items-center justify-center w-full cursor-default">
       {/* Landing Page */}
       <div className="w-[95vw] flex justify-center items-center bg-[#F8d4ba] h-[90vh] rounded-4xl">
-        <div className="flex w-[88vw] ml-8 justify-center absolute items-center">
+        <div className="flex w-[88vw] ml-8 justify-center overflow-hidden absolute items-center">
           {/* left text of landing page */}
           <div className="flex flex-col justify-start -mt-9 items-start w-2/3 ">
             <p className="text-md font-bold mb-2">De Globe Cafe</p>
