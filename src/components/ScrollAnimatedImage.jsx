@@ -1,5 +1,3 @@
-// src/components/FloatingCoffeeCup.jsx
-
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
@@ -12,10 +10,10 @@ const ScrollAnimatedImage = () => {
   // As scrollYProgress goes from 0 to 1:
   
   // 1. The 'y' position will go from 0 to -700px (moving it up the screen).
-  const y = useTransform(scrollYProgress, [0, 1], [0, -200]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
   
   // 2. The 'scale' will go from 1 to 1.8 (making it larger on the z-axis).
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.8]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 2]);
 
   return (
     // This motion.div is positioned relative to the viewport.
@@ -29,13 +27,13 @@ const ScrollAnimatedImage = () => {
       // It animates to be fully visible at its starting position.
       animate={{ opacity: 1, x: 0, y: 0 }}
       // The transition controls the feel of the load-in animation.
-      transition={{ duration: 2, ease: [0.6, 0.05, 0.01, 0.9] }}
-      className=" bottom-8 right-8 z-10 overflow-hidden"
+      transition={{ duration: 2, ease: [0.6, 0.05, 0.05, 0.8] }}
+      className=" bottom-8 right-8 z-10"
     >
       <img 
         src="/Coffee_cup.png" 
         alt="A decorative coffee cup" 
-        className="h-auto max-w-[1100px]" // Adjust width as needed
+        className="h-auto max-w-[1200px]" // Adjust width as needed
       />
     </motion.div>
   );

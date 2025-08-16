@@ -74,7 +74,7 @@ const Home = () => {
     <main className=" flex flex-col items-center justify-center w-full">
       {/* Landing Page */}
       <div className="w-[95vw] flex justify-center items-center bg-[#F8d4ba] h-[90vh] rounded-4xl">
-        <div className="flex w-[88vw] ml-8 justify-center absolute items-center">
+        <div className="flex w-[88vw] ml-8 justify-center overflow-hidden  absolute items-center">
           {/* left text of landing page */}
           <div className="flex flex-col justify-start -mt-9 items-start w-2/3 ">
             <p className="text-md font-bold mb-2">De Globe Cafe</p>
@@ -97,7 +97,7 @@ const Home = () => {
           </div>
 
           {/* right image of landing page */}
-          <div className="w-1/2 relative overflow-hidden ">
+          <div className="w-1/2 relative ">
             <ScrollAnimatedImage />
           </div>
         </div>
@@ -339,7 +339,7 @@ const Home = () => {
       </section>
 
       {/* Experience De Globe Café in Action! Section */}
-      <section className="h-[130vh] mt-28 bg-[#161916] w-full">
+      <section className="h-[90vh] mt-28 bg-[#161916] w-full">
         <div className="w-[95vw] mx-auto flex flex-col items-center h-full">
           <div className="flex flex-col justify-center gap-12 items-center text-white h-full">
             <h1 className="font-bold text-7xl">
