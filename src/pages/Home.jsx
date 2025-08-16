@@ -338,7 +338,7 @@ const Home = () => {
       </section>
 
       {/* Experience De Globe Café in Action! Section */}
-      <section className="h-[90vh] mt-28 bg-[#161916] w-full">
+      <section className="h-full mt-28 bg-[#161916] w-full">
         <div className="w-[95vw] mx-auto flex flex-col items-center h-full">
           <div className="flex flex-col justify-center gap-12 items-center text-white h-full">
             <h1 className="font-bold text-7xl">
