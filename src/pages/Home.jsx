@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollAnimatedImage from "../components/ScrollAnimatedImage";
 import { useNavigate } from "react-router-dom";
@@ -71,10 +70,10 @@ const Home = () => {
     navigate("/About");
   }
   return (
-    <main className=" flex flex-col items-center justify-center w-full">
+    <main className="flex flex-col items-center justify-center w-full cursor-default">
       {/* Landing Page */}
-      <div className="w-[95vw] flex justify-center items-center bg-[#F8d4ba] h-[90vh] rounded-4xl">
-        <div className="flex w-[88vw] ml-8 justify-center absolute items-center">
+      <div className="w-[95vw] cursor-default flex justify-center items-center bg-[#F8d4ba] h-[90vh] rounded-4xl">
+        <div className="flex w-[88vw] ml-8 cursor-default justify-center absolute items-center">
           {/* left text of landing page */}
           <div className="flex flex-col justify-start -mt-9 items-start w-2/3 ">
             <p className="text-md font-bold mb-2">De Globe Cafe</p>
@@ -134,7 +133,7 @@ const Home = () => {
               experience to Hazratganj, Lucknow, in place of a Mughal-theme
               restaurant. Just as it started gaining momentum, the Covid-19
               pandemic shook the world. The lockdown forced many businesses to
-              shut down, but we refused to give up. Prioritizing our team’s
+              shut down, but we refused to give up. Prioritizing our team's
               well-being, we ensured timely rent payments and full salaries,
               even in uncertain times. Through unwavering determination and love
               for what we do, we survived—and today, our coffee and tea are
@@ -260,7 +259,7 @@ const Home = () => {
                         : "w-[300px] h-[350px] p-5 mb-16"
                     }`}
                     initial={{
-                      x: offset === -1 ? -400 : offset === 1 ? 400 : 0,
+                      x: offset === -1 ? -400 : 0,
                       opacity: 0,
                       scale: isCenter ? 1 : 0.9,
                     }}
@@ -270,7 +269,7 @@ const Home = () => {
                       scale: isCenter ? 1 : 0.9,
                     }}
                     exit={{
-                      x: offset === -1 ? -400 : offset === 1 ? 400 : 0,
+                      x: offset === -1 ? -400: 0,
                       opacity: 0,
                       scale: 0.8,
                     }}
@@ -356,7 +355,7 @@ const Home = () => {
 
           <div className="grid grid-cols-5 gap-6 mt-12 mb-60 w-full max-w-7xl">
             {/* Instagram Reel 1 - Cold Coffee */}
-            <div className="aspect-[9/16] bg-gray-800 rounded-xl hover:scale-130 transition-transform duration-400 overflow-hidden group cursor-pointer">
+            <div className="aspect-[9/16] bg-gray-800 rounded-xl hover:scale-130 transition-transform duration-400 overflow-hidden group cursor-pointer relative">
               <video
                 src="/reel1.mp4"
                 controls
@@ -368,15 +367,10 @@ const Home = () => {
                 alt="Most Affordable Cold Coffee in Hazratganj"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0  bg-opacity-40 flex flex-col justify-between p-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-white text-sm">2 👁</span>
-                </div>
-              </div>
             </div>
 
             {/* Instagram Reel 2 - Chicken Samosa */}
-            <div className="aspect-[9/16] bg-gray-800 rounded-xl hover:scale-130 transition-transform duration-400 overflow-hidden group cursor-pointer">
+            <div className="aspect-[9/16] bg-gray-800 rounded-xl hover:scale-130 transition-transform duration-400 overflow-hidden group cursor-pointer relative">
               <video
                 src="/reel2.mp4"
                 controls
@@ -388,15 +382,10 @@ const Home = () => {
                 alt="Most Affordable Cold Coffee in Hazratganj"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0  bg-opacity-40 flex flex-col justify-between p-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-white text-sm">2 👁</span>
-                </div>
-              </div>
             </div>
 
             {/* Instagram Reel 3 - Placeholder */}
-            <div className="aspect-[9/16] bg-gray-800 rounded-xl hover:scale-130 transition-transform duration-400 overflow-hidden group cursor-pointer">
+            <div className="aspect-[9/16] bg-gray-800 rounded-xl hover:scale-130 transition-transform duration-400 overflow-hidden group cursor-pointer relative">
               <video
                 src="/reel3.mp4"
                 controls
@@ -408,16 +397,10 @@ const Home = () => {
                 alt="Most Affordable Cold Coffee in Hazratganj"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 flex items-center justify-center"></div>
-              <div className="absolute inset-0  bg-opacity-20 flex flex-col justify-between p-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-white text-sm">2 👁</span>
-                </div>
-              </div>
             </div>
 
             {/* Instagram Reel 4 - Dark Placeholder */}
-            <div className="aspect-[9/16] bg-gray-800 rounded-xl hover:scale-130 transition-transform duration-400 overflow-hidden group cursor-pointer">
+            <div className="aspect-[9/16] bg-gray-800 rounded-xl hover:scale-130 transition-transform duration-400 overflow-hidden group cursor-pointer relative">
               <video
                 src="/reel4.mp4"
                 controls
@@ -429,15 +412,10 @@ const Home = () => {
                 alt="Most Affordable Cold Coffee in Hazratganj"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0  bg-opacity-60 flex flex-col justify-between p-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-white text-sm">2 👁</span>
-                </div>
-              </div>
             </div>
 
             {/* Instagram Reel 5 - De Globe Cafe Branch */}
-            <div className="aspect-[9/16] bg-gray-800 rounded-xl hover:scale-130 transition-transform duration-400  overflow-hidden group cursor-pointer">
+            <div className="aspect-[9/16] bg-gray-800 rounded-xl hover:scale-130 transition-transform duration-400 overflow-hidden group cursor-pointer relative">
               <video
                 src="/reel5.mp4"
                 controls
@@ -449,11 +427,6 @@ const Home = () => {
                 alt="Most Affordable Cold Coffee in Hazratganj"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0  bg-opacity-40 flex flex-col justify-between p-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-white text-sm">2 👁</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
