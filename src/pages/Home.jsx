@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useEffect, useState, useRef } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import ScrollAnimatedImage from "../components/ScrollAnimatedImage";
 import { useNavigate } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -44,6 +44,8 @@ const Home = () => {
   ];
 
   const [index, setIndex] = useState(0);
+  const aboutRef = useRef(null);
+  const isAboutInView = useInView(aboutRef, { once: true, threshold: 0.3 });
 
   // Auto-slide every 4 seconds
   useEffect(() => {
@@ -107,23 +109,33 @@ const Home = () => {
       <div>
         <div className="flex bg-[url('/about-heading-bg.png')] bg-cover bg-center justify-center items-center w-[99vw] h-[60vh] bg-[#161916]">
           <h1 className="text-[#F8d4ba] font-bold text-5xl tracking-wide leading-16">
-            "Coffee isn’t just a drink, it’s a hug in a mug, a <br />
+                        "Coffee isn’t just a drink, it’s a hug in a mug, a <br />
             spark of inspiration, and the fuel for great ideas."
           </h1>
         </div>
 
-        <div className="flex justify-center w-[85vw] mx-auto gap-20 items-center h-[90vh] bg-[#161916]">
+        <div ref={aboutRef} className="flex justify-center w-[85vw] mx-auto gap-20 items-center h-[90vh] bg-[#161916]">
           {/* Left image in About section */}
-          <div className="w-1/2 relative overflow-hidden h-[75vh]">
+          <motion.div 
+            className="w-1/2 relative overflow-hidden h-[75vh]"
+            initial={{ x: -200, opacity: 0 }}
+            animate={isAboutInView ? { x: 0, opacity: 1 } : { x: -200, opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <img
               src="/deglobe_image.png"
               alt="deglobe"
               className="h-full rounded-3xl object-cover overflow-hidden w-full"
             />
-          </div>
+          </motion.div>
 
           {/* Right content in About section */}
-          <div className="w-1/2 text-white flex-col gap-5 flex justify-start items-start">
+          <motion.div 
+            className="w-1/2 text-white flex-col gap-5 flex justify-start items-start"
+            initial={{ x: 200, opacity: 0 }}
+            animate={isAboutInView ? { x: 0, opacity: 1 } : { x: 200, opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <p className="font-bold">About Us</p>
             <h2 className="font-bold text-5xl leading-16">
               Explore Tale of <br /> Resilience & Passion
@@ -161,7 +173,7 @@ const Home = () => {
             >
               Learn More
             </button>
-          </div>
+          </motion.div>
         </div>
       </div>
 

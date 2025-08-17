@@ -1,10 +1,19 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { AnimatePresence, motion, useInView } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useEffect, useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const About = () => {
   const [index, setIndex] = useState(0);
+  const locationRef = useRef(null);
+  const isLocationInView = useInView(locationRef, { once: true, threshold: 0.3 });
+  
+  // Refs for new animations
+  const heroRef = useRef(null);
+  const isHeroInView = useInView(heroRef, { once: true, threshold: 0.3 });
+  
+  const storyRef = useRef(null);
+  const isStoryInView = useInView(storyRef, { once: true, threshold: 0.2 });
 
   const dishes = [
     {
@@ -44,11 +53,11 @@ const About = () => {
     },
   ];
 
-  // Auto-slide every 4 seconds
+  // Auto-slide every 6 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
-    }, 4000);
+    }, 6000);
     return () => clearInterval(interval);
   }, [index]);
 
@@ -69,54 +78,80 @@ const About = () => {
   return (
     <main>
       <div className="flex flex-col items-center justify-center h-[40vh] w-full bg-[#161916]">
-        <div className="flex flex-col items-center w-[90vw] rounded-2xl h-[35vh] justify-center bg-[#efd3ba]">
+        <motion.div 
+          ref={heroRef}
+          className="flex flex-col items-center w-[90vw] rounded-2xl h-[35vh] justify-center bg-[#efd3ba]"
+          initial={{ x: -300, opacity: 0 }}
+          animate={isHeroInView ? { x: 0, opacity: 1 } : { x: -300, opacity: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <h1 className="text-5xl font-bold mb-2 text-[#161916]">
             About De Globe Café
           </h1>
           <h2 className="text-2xl font-medium mt-2 font-serif text-[#161916]">
             Brewing Stories, One Cup at a Time ☕
           </h2>
-        </div>
+        </motion.div>
       </div>
 
       <section className="w-full h-[90vh] bg-[#161916] flex items-center justify-center">
-        <div className="flex flex-col w-[83vw] h-full mt-32 justify-start  text-white">
+        <div ref={storyRef} className="flex flex-col w-[83vw] h-full mt-32 justify-start  text-white">
           <h3 className="text-4xl font-semibold mb-4 text-left border-b-1 border-white py-4">
             From Adversity to Legacy: The De Globe Cafe Story
           </h3>
           <div className="text-xl text-gray-300 font-serif flex flex-col gap-4">
-            <p>
+            <motion.p
+              initial={{ x: 200, opacity: 0 }}
+              animate={isStoryInView ? { x: 0, opacity: 1 } : { x: 200, opacity: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+            >
               In 2019, De Globe Cafe opened its doors in the heart of
               Hazratganj, Lucknow, replacing a Mughal-theme restaurant with a
               fresh, global-inspired <br /> café experience. The response was
               heartwarming—guests loved our warm ambiance, handcrafted
               beverages, and thoughtfully curated menu. The <br /> future looked
               bright.
-            </p>
-            <p>
+            </motion.p>
+            <motion.p
+              initial={{ x: -200, opacity: 0 }}
+              animate={isStoryInView ? { x: 0, opacity: 1 } : { x: -200, opacity: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+            >
               But then, the Covid-19 pandemic changed everything. India went
               into lockdown. Streets were empty, businesses shut down overnight,
               and <br /> uncertainty loomed. Many cafes and restaurants were
               forced to close permanently, but we made a decision—we would not
               let our team struggle.
-            </p>
-            <p>
+            </motion.p>
+            <motion.p
+              initial={{ x: 200, opacity: 0 }}
+              animate={isStoryInView ? { x: 0, opacity: 1 } : { x: 200, opacity: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
+            >
               With no revenue coming in, we still ensured timely rent payments
               and full salaries for our staff, because they were our family. It
               was tough. It <br /> was uncertain. But we believed in our people
               and our passion. When the world reopened, our community stood by
-              us. Slowly, but steadily, we rebuilt <br /> what we had started.
-            </p>
-            <p>
+              us. Slowly, but steadily, we rebuilt what we had started.
+            </motion.p>
+            <motion.p
+            initial={{ x: -200, opacity: 0 }}
+              animate={isStoryInView ? { x: 0, opacity: 1 } : { x: -200, opacity: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+            >
               Today, De Globe Cafe is not just a café—it’s a story of
               resilience, hope, and passion. Our coffee and tea are now among
               the most loved in Hazratganj, a testament to the journey we
               undertook. Every sip you take here is brewed with the struggles,
               dreams, and unwavering spirit that <br /> kept us going.
-            </p>
-            <p>
+            </motion.p>
+            <motion.p
+              initial={{ x: 200, opacity: 0 }}
+              animate={isStoryInView ? { x: 0, opacity: 1 } : { x: 200, opacity: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.9 }}
+            >
               Welcome to De Globe Cafe—a place where every cup tells a story.
-            </p>
+            </motion.p>
           </div>
         </div>
       </section>
@@ -300,8 +335,13 @@ const About = () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-4 mb-10 justify-center w-[85vw] h-full mt-12 mx-auto">
-          <div className="flex flex-col items-center justify-center bg-[#FAD7B7] space-y-4 w-1/2 rounded-3xl mx-auto h-[40vh]">
+        <div ref={locationRef} className="flex items-center gap-4 mb-10 justify-center w-[85vw] h-full mt-12 mx-auto">
+          <motion.div 
+            className="flex flex-col items-center justify-center bg-[#FAD7B7] space-y-4 w-1/2 rounded-3xl mx-auto h-[40vh]"
+            initial={{ x: -200, opacity: 0 }}
+            animate={isLocationInView ? { x: 0, opacity: 1 } : { x: -200, opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <span className="text-center">🏢</span>
             <h1 className="text-3xl font-semibold">De Globe Café</h1>
             <p className="text-center font-serif text-2xl font-normal">
@@ -311,8 +351,13 @@ const About = () => {
               Maqbara Rd, opposite LIC Office, Bank of Baroda, <br />{" "}
               Hazratganj, Lucknow, Uttar Pradesh 226001
             </p>
-          </div>
-          <div className="flex flex-col items-center justify-center bg-[#FAD7B7] space-y-4 w-1/2 rounded-3xl mx-auto h-[40vh]">
+          </motion.div>
+          <motion.div 
+            className="flex flex-col items-center justify-center bg-[#FAD7B7] space-y-4 w-1/2 rounded-3xl mx-auto h-[40vh]"
+            initial={{ x: 200, opacity: 0 }}
+            animate={isLocationInView ? { x: 0, opacity: 1 } : { x: 200, opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <span className="text-center">🏢</span>
             <h1 className="text-3xl font-semibold">De Globe Café</h1>
             <p className="text-center font-serif text-2xl font-normal">
@@ -322,7 +367,7 @@ const About = () => {
               Chitrhar Building, behind Prince Market, Nawal Kishor Road,
               Hazratganj, Lucknow, Uttar Pradesh 226001
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
     </main>
